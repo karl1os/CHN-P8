@@ -23,3 +23,7 @@ else
         echo "el directorio actual es: "$(pwd)
     fi
 fi
+#El terminal se queda en el directorio de trabajo original, debido a que el script se ejecuta en un terminal distinto al actual, 
+#por tanto al finalizar el script se cierra dicha terminal y regresamos a la terminal "padre", 
+#para solucionar esto podemos ejecutar nuestro script agregando el comando "source" previo al llamamiento del scrip o usando "." por ejemplo:
+# "source ./script.sh" o ". ./script.sh" 
