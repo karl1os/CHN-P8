@@ -5,8 +5,9 @@
 #En cas de no poder crear el directori, mostrarà per pantalla el missatge “No s'ha pogut crearel directori” i quedar-se a la ruta original. 
 #Per a comprovar que el vostre shellscript es comporta de la forma esperada, mostreu per pantalla el directori de treball actual.
 # author            : Carlos Hernandez Navarro
-# date              : 01/03/2021
+# date              : 02/03/2021
 # =====================================
+#!/bin/bash
 echo "introducce la ruta de un directorio: "
 read RUTA
 if [ -d $RUTA ]
