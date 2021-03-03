@@ -9,7 +9,7 @@
 #Totes les comprovacions anteriors es poden fer en funció de l'extensió del fitxer. Suposarem que si els fitxers tenen la extensió correcta, 
 #són del format que indica la seva extensió.
 # author            : Carlos Hernandez Navarro
-# date              : 03/03/2021
+# date              : 0X/03/2021
 # =====================================
 #!/bin/bash
 if [ $1 == *".tar.gz" ]
@@ -81,3 +81,8 @@ else
 		fi
 	fi
 fi
+
+#He detectado un problema, y esque a la hora de comparar si es un archivo comprimido o empaquetado, no puede existir ninguno con el mismo formato en el directorio de trabajo
+#ya que compara el argumento con cualquier archivo acabado en el formato indicado, por ejemplo:
+#tenemos el archivo1.tar.bz2 (entrada de argumento del script) y el archivo.tar.bz2, al llegar al if compara los dos y detecta que no son iguales y salta al siguietne if 
+#hasta que detecta que es un fichero, en ese momento inicia el menu del if [ -f $1 ]. Debe de haber alguna forma mas optima de hacer esta comaparacion.
