@@ -9,24 +9,24 @@
 #Totes les comprovacions anteriors es poden fer en funció de l'extensió del fitxer. Suposarem que si els fitxers tenen la extensió correcta, 
 #són del format que indica la seva extensió.
 # author            : Carlos Hernandez Navarro
-# date              : 0X/03/2021
+# date              : 03/03/2021
 # =====================================
 #!/bin/bash
-if [$1 = "*.tar.gz" ]
+if [ $1 == *".tar.gz" ]
         then
-			$(tar -xzf $1 $(pwd)) > /dev/null 2>&1
+			tar -xzf $1
 else
-	if [$1 = "*.tar.bz2" ]
-        then
-			$(tar -xjf $1 $(pwd)) > /dev/null 2>&1
+	if [ $1 == *".tar.bz2" ]
+	        then
+				tar -xjf $1
 	else
-		if [$1 = "*.gz" ]
+		if [ $1 == *".gz" ]
 			then
-				$(gunzip -k $1) > /dev/null 2>&1
+				gunzip -k $1
 		else
-			if [$1 = "*.bz2" ]
+			if [ $1 == *".bz2" ]
 				then
-					$(bunzip2 -k $1) > /dev/null 2>&1
+					bunzip2 -k $1
 			else
 				if [ -f $1 ]
 					then
@@ -38,13 +38,13 @@ else
 						read OPC
 							case $OPC in
 								1)
-									$(gzip -k $1)
+									gzip -k $1
 									;;
 								2)
-									$(bzip2 -k $1)
+									bzip2 -k $1
 									;;
 								3)
-									$(exit)
+									exit
 									;;
 								*)
 									echo "No has seleccionado una opcion valida"
@@ -61,13 +61,13 @@ else
 							read OPC
 								case $OPC in
 									1)
-										$(tar -czf $1.tar.gz $1)
+										tar -czf $1.tar.gz $1
 										;;
 									2)
-										$(tar -cjf $1.tar.bz2 $1)
+										tar -cjf $1.tar.bz2 $1
 										;;
 									3)
-										$(exit)
+										exit
 										;;
 									*)
 										echo "No has seleccionado una opcion valida"
