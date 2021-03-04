@@ -12,19 +12,19 @@
 # date              : 0X/03/2021
 # =====================================
 #!/bin/bash
-if [ $1 == *".tar.gz" ]
+if [[ $1 == *".tar.gz" ]]
         then
 			tar -xzf $1
 else
-	if [ $1 == *".tar.bz2" ]
+	if [[ $1 == *".tar.bz2" ]]
 	        then
 				tar -xjf $1
 	else
-		if [ $1 == *".gz" ]
+		if [[ $1 == *".gz" ]]
 			then
 				gunzip -k $1
 		else
-			if [ $1 == *".bz2" ]
+			if [[ $1 == *".bz2" ]]
 				then
 					bunzip2 -k $1
 			else
